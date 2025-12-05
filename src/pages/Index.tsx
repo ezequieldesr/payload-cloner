@@ -250,7 +250,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border bg-card/30 backdrop-blur-sm mt-12">
         <div className="container mx-auto px-4 py-6 text-center text-sm text-muted-foreground">
-          <p>ClonePayload © 2024 - Ferramenta para desenvolvedores</p>
+          <p>ClonePayload © 2025 - Ferramenta para desenvolvedores</p>
         </div>
       </footer>
     </div>
