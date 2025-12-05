@@ -12,7 +12,7 @@ export const HowItWorks = () => {
     {
       icon: Copy,
       title: "2. Defina a Quantidade",
-      description: "Especifique quantos payloads deseja gerar (mínimo 2). Cada payload será uma cópia do original.",
+      description: "Especifique quantos payloads deseja gerar (mínimo 2) e (máxmio 100). Cada payload será uma cópia do original.",
       color: "text-accent",
     },
     {
@@ -24,13 +24,14 @@ export const HowItWorks = () => {
     {
       icon: AlertCircle,
       title: "4. Validações Aplicadas",
-      description: "O sistema valida: formato JSON, presença do timestamp, formato ISO-8601 e quantidade mínima.",
+      description: "O sistema valida: formato JSON, presença do timestamp, formato ISO-8601 e quantidade mínima e máxima.",
       color: "text-destructive",
     },
   ];
 
   const validationRules = [
     { rule: "Quantidade >= 2", example: "quantidade: 5" },
+     { rule: "Quantidade =< 100", example: "quantidade: 100" },
     { rule: "Payload não nulo/vazio", example: '{"timestamp": "..."}' },
     { rule: "Timestamp obrigatório", example: 'timestamp: "2024-01-01T00:00:00.000Z"' },
     { rule: "Formato ISO-8601", example: "YYYY-MM-DDTHH:mm:ss.sssZ" },
@@ -113,23 +114,25 @@ payload: {
             <h4 className="text-sm font-semibold text-accent mb-3">Output:</h4>
             <div className="code-editor bg-code-bg space-y-2">
               <pre className="text-xs text-foreground">
-{`[
-  {
-    "timestamp": "2024-01-01T12:00:00.001Z",
-    "userId": "123",
-    "action": "click"
-  },
-  {
-    "timestamp": "2024-01-01T12:00:00.002Z",
-    "userId": "123",
-    "action": "click"
-  },
-  {
-    "timestamp": "2024-01-01T12:00:00.003Z",
-    "userId": "123",
-    "action": "click"
-  }
-]`}
+{`{
+  "payloads": [
+    {
+      "timestamp": "2024-01-01T12:00:00.001Z",
+      "userId": "123",
+      "action": "click"
+    },
+    {
+      "timestamp": "2024-01-01T12:00:00.002Z",
+      "userId": "123",
+      "action": "click"
+    },
+    {
+      "timestamp": "2024-01-01T12:00:00.003Z",
+      "userId": "123",
+      "action": "click"
+    }
+  ]
+}`}
               </pre>
             </div>
           </div>
